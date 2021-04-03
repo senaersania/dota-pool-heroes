@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,24 @@
   to {
     transform: rotate(360deg);
   }
+} */
+* {
+  color: white;
+}
+
+/*** BODY ***/
+body {
+  background-color: black;
+}
+
+/*** NAVBAR ***/
+.navbar-nav> li > a {
+  text-transform: uppercase;
+  color: white !important;
+}
+
+/*** MAIN ***/
+.main-title {
+  color: white;
+  text-transform: uppercase;
 }
