@@ -3,8 +3,10 @@ import axios from 'axios'
 
 const DotaList = () => {
     const [dotaList, setDotaList] = useState([])
+    const [proMatches, setProMatches] = useState([])
     const [loading, setLoading] = useState(false)
     const heroesUrl = `https://api.opendota.com/api/constants/heroes`
+    const proMatchesUrl = `https://api.opendota.com/api/proMatches`
     const imgPath = `http://cdn.dota2.com`
 
     useEffect(() => {
@@ -13,16 +15,23 @@ const DotaList = () => {
             // console.log(res.data)
             const temp = Object.keys(res.data) // { key : value} => [1,2,3,4].map(key => res.data[key])
             .map(key => res.data[key]) //return key res.data
-            // console.log(res.data)
+            // console.log('heroes list', temp)
             setDotaList(temp) 
             setLoading(false)
+        })
+
+        axios.get(proMatchesUrl)
+        .then(res => {
+            // console.log(res.data)
+            setProMatches(res.data)
         })
         return () => {
             setLoading(true)
         }
     }, [])
 
-    // console.log(dotaList)
+    // console.log('heroes list', dotaList)
+    // console.log('pro matches', proMatches)
 
     if(loading){
         return <p>loading...</p>
@@ -37,12 +46,18 @@ const DotaList = () => {
                 </div>
                 <div className="row no-gutters">
                     {dotaList.map((item) =>
-                    <div className="col-sm-2 no-gutters">
-                        <div key={item.id}>
-                            {/* <h2 key={item.id}>{item.localized_name}</h2> */}
-                            <img src={imgPath+item.img} width="190"/>
+                    <div key={item.id} className="col-sm-2 no-gutters shadow">
+                        <div>
+                            <img src={imgPath+item.img} width="190" alt={item.localized_name}/>
+                            <div className="overlay">{item.localized_name}</div>
                         </div>
                     </div>
+                    )}
+                </div>
+
+                <div>
+                    {proMatches.map((item, index) =>
+                        <div key={index}>{item.match_id}</div>
                     )}
                 </div>
             </div>
