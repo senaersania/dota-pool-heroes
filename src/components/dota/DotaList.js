@@ -6,7 +6,7 @@ const DotaList = () => {
     const [proMatches, setProMatches] = useState([])
     const [loading, setLoading] = useState(false)
     const heroesUrl = `https://api.opendota.com/api/constants/heroes`
-    const proMatchesUrl = `https://api.opendota.com/api/proMatches`
+    // const proMatchesUrl = `https://api.opendota.com/api/proMatches`
     const imgPath = `http://cdn.dota2.com`
 
     useEffect(() => {
@@ -20,11 +20,11 @@ const DotaList = () => {
             setLoading(false)
         })
 
-        axios.get(proMatchesUrl)
-        .then(res => {
-            // console.log(res.data)
-            setProMatches(res.data)
-        })
+        // axios.get(proMatchesUrl)
+        // .then(res => {
+        //     console.log(res.data)
+        //     setProMatches(res.data)
+        // })
         return () => {
             setLoading(true)
         }
@@ -55,11 +55,11 @@ const DotaList = () => {
                     )}
                 </div>
 
-                <div>
+                {/* <div>
                     {proMatches.map((item, index) =>
                         <div key={index}>{item.match_id}</div>
                     )}
-                </div>
+                </div> */}
             </div>
         </div>
     )
