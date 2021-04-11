@@ -4,7 +4,7 @@ import axios from 'axios'
 const ProMatches = () => {
     const [matches, setMatches] = useState([])
     const [loading, setLoading] = useState(false)
-    const matchesUrl = `https://api.opendota.com/api/proMatches`
+    const matchesUrl = process.env.REACT_APP_PRO_MATCHES
     
     useEffect(() => {
         axios.get(matchesUrl)

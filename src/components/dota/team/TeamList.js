@@ -4,7 +4,7 @@ import axios from 'axios'
 const TeamList = () => {
 const [team, setTeam] = useState([])
 const [loading, setLoading] = useState(false)
-const teamUrl = `https://api.opendota.com/api/teams`
+const teamUrl = process.env.REACT_APP_TEAM_LIST
 const teamId = `https://api.opendota.com/api/teams/{team_id}`
 const teamMatches = `https://api.opendota.com/api/teams/{team_id}/matches`
 const teamPlayers = `https://api.opendota.com/api/teams/{team_id}/players`
@@ -19,6 +19,8 @@ const teamPlayers = `https://api.opendota.com/api/teams/{team_id}/players`
             setLoading(true)
         }
     }, [])
+
+    console.log(team)
 
     if(loading){
         <div>

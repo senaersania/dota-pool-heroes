@@ -6,7 +6,9 @@ const TeamPlayer = () => {
     const [player, setPlayer] = useState([])
     const [loading, setLoading] = useState(false)
     const {id} = useParams()
-    const teamPlayerUrl = `https://api.opendota.com/api/teams/${id}/players`
+    const teamPlayerUrl = process.env.REACT_APP_TEAM_PLAYER+id+'/players'
+    
+    console.log(process.env);
 
     useEffect(() => {
         axios.get(teamPlayerUrl)

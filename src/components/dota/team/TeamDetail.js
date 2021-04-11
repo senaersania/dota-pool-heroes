@@ -6,13 +6,12 @@ import TeamPlayer from './TeamPlayer'
 const TeamDetail = () => {
     const [teamDetail, setTeamDetail] = useState([])
     const {id} = useParams()
-    const teamDetailUrl = `https://api.opendota.com/api/teams/${id}`
-    // const teamDetailPlayer = `https://api.opendota.com/api/teams/${id}/players`
+    const teamDetailUrl = process.env.REACT_APP_TEAM_DETAIL+id
 
     useEffect(() => {
     axios.get(teamDetailUrl)
     .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         setTeamDetail(res.data)
     })
     return () => {

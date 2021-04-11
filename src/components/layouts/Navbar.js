@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../dota-2-logo.png'
+import attack from '../../asset/attack-icon.png'
 
 const Navbar = () => {
     return (
@@ -7,7 +8,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
                 <div className="container">
 
-                <a className="navbar-brand" href="/"><img src={logo} alt="logo" width="25"></img></a>
+                <a className="navbar-brand" href="/"><img src={attack} alt="logo" width="25"></img></a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
